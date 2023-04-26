@@ -1,0 +1,29 @@
+/*
+Description: Return a list of all roles for women who work in the Engineering department with a base pay of at least $100,000 and at least a $5,000 bonus with either a Master’s or PhD over the age of 30.
+Needs:
+title (Engineering dpt),
+basepay at least 100k
+bonus at least 5k
+age over 30
+gender (Women)
+education (PHD and/or Master's)
+
+-- When filtering on a text column AND you are not familiar with the records in the table, immediately 
+turn your current query into a note, then you want to write another query that will read:
+
+SELECT DISTINCT (text column on which you are filtering)
+FROM tablename
+
+This practice will allow for you to see the records in the column, so you can successfully filter/
+include the records in your where statement
+*/
+SELECT jobtitle,
+gender,
+age,
+education,
+dept,
+basepay,
+bonus
+From glassdoor_survey_roles
+Where gender = 'Female' AND dept = 'Engineering' AND education IN ('PhD','Masters') AND 
+basepay >= 10000 And bonus >= 5000 And age > 30
